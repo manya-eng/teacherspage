@@ -1,176 +1,336 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>English with Spark — Репетитор английского</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg1: #ff9a9e;
-      --bg2: #fad0c4;
-      --accent1: #6ee7b7;
-      --accent2: #60a5fa;
-      --deep: #0f172a;
-      --glass: rgba(255,255,255,0.12);
-      --card: rgba(255,255,255,0.85);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    body{
-      background: linear-gradient(135deg,var(--bg1),var(--bg2));
-      color:var(--deep);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-y:auto;
-      padding:32px;
-    }
-    .container{max-width:1100px;margin:0 auto}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вязаные изделия — магазин</title>
 
-    /* Hero */
-    .hero{
-      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
-      border-radius:var(--radius);padding:28px;box-shadow:0 10px 30px rgba(17,24,39,0.12);
-      backdrop-filter: blur(6px);
-    }
-    h1{font-family:Rubik,Inter;font-size:38px;margin:0 0 8px;color:#10243a}
-    p.lead{margin:0 0 16px;font-weight:500;color:#1f2937}
-    .highlight{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:700}
-
-    .cta-row{display:flex;gap:12px;margin-top:12px}
-    .btn{border:0;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,var(--accent2),#7c3aed);color:white;box-shadow:0 6px 18px rgba(96,165,250,0.18)}
-    .btn-ghost{background:transparent;border:2px solid rgba(16,36,58,0.08);color:var(--deep)}
-
-    /* Profile */
-    .profile{
-      text-align:center;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.88));
-    }
-    .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;margin:0 auto 12px;box-shadow:0 8px 24px rgba(16,36,58,0.08)}
-    .name{font-weight:800;font-size:20px;margin:0}
-    .sub{color:#374151;margin:6px 0 0}
-
-    /* services grid */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .service{padding:14px;border-radius:12px;background:var(--glass);backdrop-filter:blur(4px);text-align:center}
-    .service h3{margin:8px 0 2px;font-size:16px}
-    .service p{margin:0;color:#334155;font-size:14px}
-
-    /* testimonials */
-    .testimonials{display:flex;gap:12px;margin-top:18px}
-    .test{flex:1;padding:16px;border-radius:12px;background:var(--card);}
-
-    /* schedule & contact */
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-    .schedule-table{width:100%;border-collapse:collapse}
-    .schedule-table td{padding:8px;border-bottom:1px dashed rgba(16,36,58,0.06)}
-
-    /* footer */
-    footer{margin-top:22px;text-align:center;color:#0f172a6b}
-
-    /* small screens */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .two-col{grid-template-columns:1fr}
-    }
-    @media (max-width:520px){
-      .grid{grid-template-columns:1fr}
-      h1{font-size:28px}
+    <style>
+        /* Общий фон страницы */
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('images/fon.jpg'); /* путь к картинке */
+    background-repeat: no-repeat;            /* не повторять */
+    background-size: cover;                  /* растянуть на весь экран */
+    background-position: center center;      /* выровнять по центру */
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        overflow-x: hidden;
     }
 
-    /* playful floating shapes */
-    .float-shape{position:fixed;z-index:0;filter:blur(14px);opacity:0.9}
-    .shape1{right:-80px;top:-40px;width:280px;height:280px;background:radial-gradient(circle at 30% 30%, #fff1, #fff0 40%);transform:rotate(30deg)}
-    .shape2{left:-100px;bottom:-50px;width:320px;height:320px;background:linear-gradient(90deg,var(--accent1),var(--accent2));opacity:0.14}
+   /* Заголовок в морозных оттенках с фиолетовой обводкой */
+header h1 {
+    font-size: 3em; /* размер заголовка */
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #00cfff, #0099ff, #e0f7ff); /* морозный градиент */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* текст берёт цвет градиента */
+    
+    /* Обводка фиолетовым */
+    -webkit-text-stroke: 2px #8000ff; /* толщина и цвет обводки */
+    text-shadow:
+        0 0 5px #a0cfff, /* сияние ледяное */
+        0 0 10px #ccefff,
+        0 0 15px #d0f0ff;
+    
+    animation: sparkleIce 2s infinite alternate; /* мерцание */
+    margin: 0;
+}
 
-    /* small interactions */
-    .btn:active{transform:translateY(2px)}
-    a.cta-link{color:inherit;text-decoration:none}
+@keyframes sparkleIce {
+    0% { text-shadow: 0 0 5px #a0cfff, 0 0 10px #ccefff, 0 0 15px #d0f0ff; }
+    50% { text-shadow: 0 0 10px #33f, 0 0 15px #ccf9ff, 0 0 20px #ddfaff; }
+    100% { text-shadow: 0 0 5px #a0cfff, 0 0 10px #ccefff, 0 0 15px #d0f0ff; }
+    }
+	
+	@keyframes glow {
+    0% { box-shadow: 0 0 5px #ff0000; background-color: #e53935; }
+    25% { box-shadow: 0 0 10px #ffeb3b; background-color: #f44336; }
+    50% { box-shadow: 0 0 15px #4caf50; background-color: #e53935; }
+    75% { box-shadow: 0 0 10px #ffeb3b; background-color: #f44336; }
+    100% { box-shadow: 0 0 5px #ff0000; background-color: #e53935; }
+}
 
-    /* subtle animated unread badge */
-    .pulse{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#ff6b6b,#ffb86b);color:white;font-weight:700;animation:pulse 2.8s infinite}
-    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+.products {
+    display: flex;           /* горизонтальный ряд */
+    gap: 20px;               /* расстояние между карточками */
+    padding: 20px;
+    overflow-x: auto;        /* горизонтальный скролл, если не помещаются */
+    scrollbar-width: thin;   /* для Firefox */
+}
 
-  </style>
+.products::-webkit-scrollbar {
+    height: 8px;             /* высота скроллбара */
+}
+
+.products::-webkit-scrollbar-thumb {
+    background-color: #b764e7; /* цвет скроллбара */
+    border-radius: 4px;
+}
+    /* Карточки товаров */
+    .product-card {
+    flex: 0 0 250px;  /* фиксированная ширина 250px, не сжимается и не растягивается */
+    background: #f0f8ff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #ccc;
+    padding: 15px;
+    text-align: center;
+    color: #000;
+    max-width: 250px;       /* фиксированная максимальная ширина */
+    margin: auto;           /* выравнивание в сетке */
+}
+
+.product-card img {
+   width: 100%; /* под ширину карточки */
+    height: auto;
+    border-radius: 8px;
+}
+
+    /* Кнопки */
+    .product-card button {
+        background: #e53935;  /* базовый цвет кнопки */
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    animation: glow 2s infinite; /* мерцание */
+}
+
+    .product-card button:hover {
+       animation: glow 1s infinite; /* быстрее мерцает при наведении */
+    }
+
+    /* Модальное окно */
+    .modal-content {
+        background: #f0f8ff; /* светлый фон */
+        border-radius: 10px;
+        padding: 20px;
+        position: relative;
+        color: #000;
+    }
+/* --- Адаптивность для планшетов --- */
+@media screen and (max-width: 900px) {
+    .products {
+        flex-wrap: wrap;           
+        justify-content: center;   
+        overflow-x: hidden;        
+    }
+    .product-card {
+        flex: 0 0 45%;             
+        margin-bottom: 20px;       
+    }
+}
+
+/* --- Адаптивность для телефонов --- */
+@media screen and (max-width: 600px) {
+    .products {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .product-card {
+        flex: 0 0 90%;             
+        margin-bottom: 15px;       
+    }
+    header h1 { 
+        font-size: 1.8em; /* меньше заголовок для мобильных */
+    }
+    .product-card button {
+        font-size: 14px;   
+        padding: 8px 12px; 
+    }
+
+/* --- Модальное окно на маленьких экранах --- */
+.modal-content {
+    width: 90%;       
+    max-width: 400px; 
+    margin: auto;     
+}
+    /* Фон модального затемнения */
+    .modal {
+        background: rgba(0,0,0,0.7);
+    }
+
+    /* Карусель картинок */
+    .carousel img {
+        border-radius: 10px;
+		
+		
+    }
+	
+	
+    </style>
 </head>
+
 <body>
-  <div class="float-shape shape1" aria-hidden="true"></div>
-  <div class="float-shape shape2" aria-hidden="true"></div>
 
-  <main class="container" role="main">
-    <section class="hero">
-      <div class="card" style="position:relative;z-index:2">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <div style="flex:1">
-            <h1>English with <span class="highlight">Spark</span></h1>
-            <p class="lead">Индивидуальные, парные и групповые занятия английским для дошкольников и младших школьников — онлайн и оффлайн.</p>
-            <div class="cta-row">
-              <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Записаться на пробное</button>
-              <button class="btn btn-ghost" onclick="copyPhone()">📞 Позвонить</button>
-            </div>
-            <div style="margin-top:14px;font-size:14px;color:#334155">Пробное занятие — <span class="pulse">20% скидка</span> для новых учеников!</div>
-          </div>
-          <div style="width:140px;text-align:center">
-            <svg width="100%" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs><circle cx="50" cy="50" r="38" fill="url(#g)"/></svg>
-          </div>
+<header>
+    <h1>Барбарис — вязаные изделия</h1>
+	
+</header>
+
+<div class="products">
+
+    <!-- 🔽 Карточка товара (копируй и добавляй новые) -->
+    <div class="product-card" data-name="Дед Мороз" data-price="800" data-images="images/moroz1.jpeg,images/moroz2.jpeg,images/moroz3.jpeg" data-description="Новогодний кулек в виде Деда Мороза">
+        <img src="images/moroz1.jpeg" alt="">
+        <h3>Дед Мороз</h3>
+        <p>Новогодний кулек</p>
+        <strong>800 ₽</strong><br>
+        <button class="buy-btn">Купить</button>
+    </div>
+
+    <div class="product-card" data-name="Снегурочка" data-price="900" data-images="images/snowgirl1.jpeg,images/snowgirl2.jpeg,images/snowgirl3.jpeg" data-description="Новогодний кулек в виде снегурочки, не только станет украшением интерьера, но и станет новогодним подарком для его обладателя">
+        <img src="images/snowgirl1.jpeg" alt="">
+        <h3>Снегурочка</h3>
+        <p>Новогодний кулек</p>
+        <strong>900 ₽</strong><br>
+        <button class="buy-btn">Купить</button>
+    </div>
+	
+	<div class="product-card" data-name="Вязаный костюм" data-price="2000" data-images="images/costume1.jpeg,images/costume2.jpeg,images/costume3.jpeg,images/costume4.jpeg,images/costume5.jpeg" data-description="Вязаный костюм для грудничков, выполненный вручную из гипоаллергенной пряжи.">
+        <img src="images/costume1.jpeg" alt="">
+        <h3>Вязаный костюм</h3>
+        <p>Вязаный костюм для грудничков</p>
+        <strong>2000 ₽</strong><br>
+        <button class="buy-btn">Купить</button>
+    </div>
+
+</div>
+
+
+<!-- ❗ Модальное окно -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close">&times;</span>
+
+        <!-- Карусель -->
+        <div class="carousel" id="carousel"></div>
+        <div class="carousel-buttons">
+            <button id="prev">← Назад</button>
+            <button id="next">Вперед →</button>
         </div>
 
-        <div class="grid" style="margin-top:20px">
-          <div class="service">
-            <strong>Разговорный English</strong>
-            <p>Развитие беглости через игры и интерактивные темы для детей.</p>
-          </div>
-          <div class="service">
-            <strong>Exam Prep</strong>
-            <p>Подготовка к школьным экзаменам и тестам через увлекательные задания.</p>
-          </div>
-          <div class="service">
-            <strong>Групповые занятия</strong>
-            <p>Парные и мини-группы для активного общения и практики.</p>
-          </div>
-        </div>
-      </div>
+        <!-- Данные товара -->
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <h3 id="modal-price"></h3>
 
-      <aside class="profile card" style="z-index:2">
-        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Фото репетитора">
-        <div class="name">Мария Соболева</div>
-        <div class="sub">Репетитор английского для дошкольников и младших школьников. 8 лет опыта.</div>
-        <div style="margin-top:12px;font-size:14px">Гибкий график: онлайн и оффлайн, индивидуальные, парные и групповые занятия</div>
-        <div style="margin-top:12px;display:flex;gap:8px;justify-content:center">
-          <a class="btn btn-primary" href="#contact">Написать</a>
-          <a class="btn btn-ghost" href="#pricing">Цены</a>
-        </div>
-      </aside>
-    </section>
+        <!-- 👉 Здесь можешь прописать ссылку на оплату/форму/telegram -->
+        <button id="buy-final" style="width:100%;margin-top:10px;background:#b764e7;color:#fff;border:none;padding:15px;border-radius:6px;font-size:18px;">
+            Купить
+        </button>
+    </div>
+</div>
 
-    <!-- Остальной контент без изменений -->
-  </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+    const buttons = document.querySelectorAll(".buy-btn");
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("close");
 
-    function copyPhone(){
-      const phone = document.getElementById('phone').textContent.trim();
-      navigator.clipboard?.writeText(phone).then(()=>{
-        alert('Номер скопирован: ' + phone);
-      }).catch(()=>{prompt('Скопируйте номер вручную', phone)});
-    }
+    let currentSlide = 0;
+    let images = [];
 
-    function handleSubmit(e){
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form));
-      alert('Спасибо, ' + (data.name || '') + '! Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.');
-      form.reset();
-      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-    }
-  </script>
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const card = btn.closest(".product-card");
+            const name = card.dataset.name;
+            const price = card.dataset.price;
+            const description = card.dataset.description;
+            images = card.dataset.images.split(",");
+
+            document.getElementById("modal-title").innerText = name;
+            document.getElementById("modal-price").innerText = price + " ₽";
+            document.getElementById("modal-description").innerText = description;
+
+            updateCarousel();
+            modal.style.display = "flex";
+        });
+    });
+
+    document.getElementById("prev").onclick = () => {
+        currentSlide = (currentSlide - 1 + images.length) % images.length;
+        updateCarousel();
+    };
+
+    document.getElementById("next").onclick = () => {
+        currentSlide = (currentSlide + 1) % images.length;
+        updateCarousel();
+    };
+
+    const updateCarousel = () => {
+        const carousel = document.getElementById("carousel");
+        carousel.innerHTML = `<img src="${images[currentSlide]}" alt="">`;
+    };
+
+    closeModal.addEventListener("click", () => modal.style.display = "none");
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+	
+	// Автосмена изображений при наведении на карточку
+document.querySelectorAll(".product-card").forEach(card => {
+    const img = card.querySelector("img");
+    const images = card.dataset.images.split(",");
+    let index = 0;
+    let interval;
+
+    card.addEventListener("mouseenter", () => {
+        interval = setInterval(() => {
+            index = (index + 1) % images.length;
+            img.src = images[index];
+        }, 800); // скорость пролистывания — 0.8 сек
+    });
+
+    card.addEventListener("mouseleave", () => {
+        clearInterval(interval);
+        index = 0;
+        img.src = images[0]; // возвращаем первую картинку
+    });
+});
+
+// Действие кнопки купить
+document.getElementById("buy-final").onclick = () => {
+    window.location.href = "https://t.me/Barbaris26";
+};
+</script>
+<!-- ❄️ Падающий снег -->
+<div class="snowflake">*</div>
+<div class="snowflake">*</div>
+<div class="snowflake">*</div>
+<div class="snowflake">*</div>
+<div class="snowflake">*</div>
+<div class="snowflake">*</div>
+
+<style>
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: #fff;
+    font-size: 1.2em;
+    user-select: none;
+    z-index: 9999;
+    pointer-events: none;
+    animation-name: fall;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-duration: 8s; font-size: 1em; }
+.snowflake:nth-child(2) { left: 25%; animation-duration: 12s; font-size: 1.5em; }
+.snowflake:nth-child(3) { left: 40%; animation-duration: 9s; font-size: 1.2em; }
+.snowflake:nth-child(4) { left: 55%; animation-duration: 11s; font-size: 1em; }
+.snowflake:nth-child(5) { left: 70%; animation-duration: 13s; font-size: 1.3em; }
+.snowflake:nth-child(6) { left: 85%; animation-duration: 10s; font-size: 1.1em; }
+
+@keyframes fall {
+    0% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+</style>
 </body>
 </html>
